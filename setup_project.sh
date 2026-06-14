@@ -53,7 +53,22 @@ then
     "$project_dir/Helpers/config.json"
 fi
 
-echo "Press CTRL+C within 10 seconds to test trap"
-sleep 10
+echo "Running Health Check..."
 
-echo "Setup completed."
+if python3 --version >/dev/null 2>&1
+then
+    echo "Python3 found."
+else
+    echo "WARNING: Python3 not found."
+fi
+
+if [ -d "$project_dir/Helpers" ] &&
+   [ -d "$project_dir/reports" ] &&
+   [ -f "$project_dir/attendance_checker.py" ]
+then
+    echo "Directory structure verified."
+else
+    echo "Directory structure validation failed."
+fi
+
+echo "Project setup completed successfully."
