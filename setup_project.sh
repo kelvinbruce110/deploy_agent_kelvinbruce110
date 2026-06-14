@@ -7,7 +7,14 @@ project_dir="attendance_tracker_${project}"
 
 cleanup() {
     echo
-    echo "CTRL+C detected"
+    echo "Interrupt detected"
+
+    tar -czf "${project_dir}_archive.tar.gz" "$project_dir"
+
+    rm -rf "$project_dir"
+
+    echo "Project archived"
+
     exit 1
 }
 
