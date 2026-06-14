@@ -5,6 +5,14 @@ read project
 
 project_dir="attendance_tracker_${project}"
 
+cleanup() {
+    echo
+    echo "CTRL+C detected"
+    exit 1
+}
+
+trap cleanup SIGINT
+
 mkdir -p "$project_dir"/Helpers
 mkdir -p "$project_dir"/reports
 
@@ -38,4 +46,7 @@ then
     "$project_dir/Helpers/config.json"
 fi
 
-echo "Configuration complete."
+echo "Press CTRL+C within 10 seconds to test trap"
+sleep 10
+
+echo "Setup completed."
