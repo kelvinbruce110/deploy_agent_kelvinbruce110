@@ -13,4 +13,11 @@ touch "$project_dir"/Helpers/assets.csv
 touch "$project_dir"/Helpers/config.json
 touch "$project_dir"/reports/reports.log
 
-echo "Project structure created successfully."
+cat > "$project_dir/Helpers/config.json" <<EOF
+{
+  "warning": 75,
+  "failure": 50
+}
+EOF
+
+echo "Project structure and configuration created."
