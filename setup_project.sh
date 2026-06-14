@@ -36,15 +36,32 @@ cat > "$project_dir/Helpers/config.json" <<EOF
 EOF
 
 echo "Do you want to update thresholds? (y/n)"
-read answer
 
-if [ "$answer" = "y" ]
-then
-    echo "Enter warning value:"
-    read warning
+read -r answer
 
-    echo "Enter failure value:"
-    read failure
+if [ "$answer" = "y" ]; then
+
+    while true; do
+        echo "Enter warning value:"
+        read -r warning
+
+        if [[ "$warning" =~ ^[0-9]+$ ]]; then
+            break
+        else
+            echo "Invalid input. Please enter numbers only."
+        fi
+    done
+
+    while true; do
+        echo "Enter failure value:"
+        read -r failure
+
+        if [[ "$failure" =~ ^[0-9]+$ ]]; then
+            break
+        else
+            echo "Invalid input. Please enter numbers only."
+        fi
+    done
 
     sed -i "s/\"warning\": 75/\"warning\": $warning/" \
     "$project_dir/Helpers/config.json"
