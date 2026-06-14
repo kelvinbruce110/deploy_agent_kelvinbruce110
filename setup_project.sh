@@ -20,4 +20,22 @@ cat > "$project_dir/Helpers/config.json" <<EOF
 }
 EOF
 
-echo "Project structure and configuration created."
+echo "Do you want to update thresholds? (y/n)"
+read answer
+
+if [ "$answer" = "y" ]
+then
+    echo "Enter warning value:"
+    read warning
+
+    echo "Enter failure value:"
+    read failure
+
+    sed -i "s/\"warning\": 75/\"warning\": $warning/" \
+    "$project_dir/Helpers/config.json"
+
+    sed -i "s/\"failure\": 50/\"failure\": $failure/" \
+    "$project_dir/Helpers/config.json"
+fi
+
+echo "Configuration complete."
