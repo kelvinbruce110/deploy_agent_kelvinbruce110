@@ -132,7 +132,7 @@ The script should:
 
 Video Demonstration:
 
-PASTE_YOUR_VIDEO_LINK_HERE
+https://youtu.be/y73TMOgPhUQ
 
 ---
 
