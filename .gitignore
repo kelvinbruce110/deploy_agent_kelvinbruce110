@@ -1,1 +1,22 @@
-attendance_tracker_Sample
+# Generated project directories
+attendance_tracker_*/
+
+# Generated archives
+*.tar.gz
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# VS Code settings
+.vscode/
+
+# JetBrains IDEs
+.idea/
+
+# Vim swap files
+*.swp
+*.swo
+
+# macOS system files
+.DS_Store
